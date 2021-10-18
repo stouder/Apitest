@@ -100,6 +100,7 @@ public class ReturnNumberService {
 		return wordReponse;
 	}
 
+	
 	public static String returnResultFizzBuzz(int pos, int end) {
 		String result;
 		if (pos <= end) {
