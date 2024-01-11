@@ -1,4 +1,4 @@
-package com.manageo.test;
+package com.manageo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

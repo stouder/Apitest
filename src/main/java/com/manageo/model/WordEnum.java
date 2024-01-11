@@ -1,4 +1,4 @@
-package com.manageo.test.model;
+package com.manageo.model;
 
 public enum WordEnum {
 
