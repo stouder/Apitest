@@ -1,4 +1,4 @@
-package com.manageo.service;
+package com.apitest.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 
 import org.springframework.stereotype.Component;
 
-import com.manageo.model.Word;
-import com.manageo.model.WordEnum;
+import com.apitest.model.Word;
+import com.apitest.model.WordEnum;
 
 @Component
 public class WordService {
@@ -17,9 +17,9 @@ public class WordService {
 	 * 	liste de les nots à afficher possible 
 	 */
 	public List<Word> getAvailableWord() {
-			List<Word> words = Stream.of(WordEnum.values()).map(w -> new Word(w, w.getName()))
+			return Stream.of(WordEnum.values()).map(w -> new Word(w, w.getName()))
 					.collect(Collectors.toCollection(ArrayList::new));
-			return words;
+
 			
 		}
 	}

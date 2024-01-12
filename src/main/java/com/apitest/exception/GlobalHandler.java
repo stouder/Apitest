@@ -1,15 +1,18 @@
-package com.manageo.exception;
+package com.apitest.exception;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class GlobalException {
+public class GlobalHandler extends Exception{
 
-    @ExceptionHandler(IllegalArgumentException.class)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }

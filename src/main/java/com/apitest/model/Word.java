@@ -1,4 +1,4 @@
-package com.manageo.model;
+package com.apitest.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

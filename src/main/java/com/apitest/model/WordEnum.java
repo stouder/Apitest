@@ -1,4 +1,4 @@
-package com.manageo.model;
+package com.apitest.model;
 
 public enum WordEnum {
 
@@ -26,7 +26,7 @@ public enum WordEnum {
 		return number;
 	}
 
-	public void setNumber(Integer number) {
+	void setNumber(Integer number) {
 		this.number = number;
 	}
 
@@ -34,7 +34,7 @@ public enum WordEnum {
 		return name;
 	}
 
-	public void setName(String name) {
+	void setName(String name) {
 		this.name = name;
 	}
 

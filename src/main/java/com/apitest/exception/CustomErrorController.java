@@ -1,4 +1,4 @@
-package com.manageo.exception;
+package com.apitest.exception;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
