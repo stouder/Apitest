@@ -2,18 +2,17 @@ package com.apitest.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.apitest.exception.ParameterException;
 import com.apitest.model.Word;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,12 +42,8 @@ public class ReturnNumberService {
 	 *
 	 */
 	@Cacheable(value = "cache-data", key = "#nb")
-	public String getNumbers(int nb) {
-		if (nb < 1) {
-			log.error("le nombre rentré doit etre superieur à 1");
-			return "";
-		}
-
+	public String getNumbers(int nb)  {
+		
 		StringBuilder screenDisplay = new StringBuilder();
 
 		// code Java 8

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.apitest.exception.ParameterException;
 import com.apitest.service.ReturnNumberService;
 
 @RestController
@@ -16,8 +17,12 @@ public class NumberController {
 	private ReturnNumberService reponseService;
 		
 	@GetMapping(value = "/number/{id}", produces = "application/json")
-	public ResponseEntity<String> getnumber(@PathVariable(name = "id", required = false) String id){
+	public ResponseEntity<String> getnumber(@PathVariable(name = "id", required = false) String id) {
 
+		if (Integer.parseInt(id) < 3) {	
+			//throw new ParameterException("Le paramètre 'id' ne doit pas être inferieur à 3");
+		}
+		
 		if (id == null) {
 			return new ResponseEntity<>("Aucun 'id' fourni.", HttpStatus.BAD_REQUEST);
 		}

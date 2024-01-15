@@ -17,5 +17,8 @@ public class GlobalHandler extends Exception{
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
     
-   
+	@ExceptionHandler(ParameterException.class)
+    public ResponseEntity<String> handleParameterException(IllegalArgumentException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
 }
