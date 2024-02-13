@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.apitest.exception.ParameterException;
 import com.apitest.model.Word;
 
 import lombok.extern.slf4j.Slf4j;
@@ -42,8 +40,8 @@ public class ReturnNumberService {
 	 *
 	 */
 	@Cacheable(value = "cache-data", key = "#nb")
-	public String getNumbers(int nb)  {
-		
+	public String getNumbers(int nb) {
+
 		StringBuilder screenDisplay = new StringBuilder();
 
 		// code Java 8
@@ -74,8 +72,7 @@ public class ReturnNumberService {
 			log.error("Pas de mot reponse renseigné");
 			return new ArrayList<>();
 		} else {
-			return wordsAvailable.stream().filter(word -> index % word.getReponse().getNumber() == 0)
-					.collect(Collectors.toList());
+			return wordsAvailable.stream().filter(word -> index % word.getReponse().getNumber() == 0).toList();
 		}
 
 	}
